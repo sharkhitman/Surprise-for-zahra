@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Surprise For You ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffdde8,#fff5f7);
+overflow:hidden;
+}
+.card{
+background:#fff;
+padding:35px;
+border-radius:22px;
+box-shadow:0 12px 30px rgba(0,0,0,.15);
+text-align:center;
+max-width:420px;
+}
+h1{color:#ff4f81;margin-bottom:12px}
+p{color:#555;margin-bottom:22px}
+button{
+padding:14px 28px;
+border:none;
+border-radius:30px;
+background:#ff4f81;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+button:hover{transform:scale(1.05);}
+#surprise{display:none;animation:fade 2s ease;}
+.rose{font-size:90px;animation:bloom 3s ease forwards;}
+.msg{
+margin-top:18px;
+font-size:24px;
+color:#d6336c;
+font-weight:bold;
+line-height:1.6;
+}
+@keyframes bloom{
+0%{transform:scale(.1) rotate(-20deg);opacity:0;}
+100%{transform:scale(1) rotate(0);opacity:1;}
+}
+@keyframes fade{
+from{opacity:0}
+to{opacity:1}
+}
+.petal{
+position:fixed;
+top:-30px;
+font-size:24px;
+animation:fall linear infinite;
+}
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<div id="start">
+<h1>🎁 A Surprise For You ❤️</h1>
+<p>Someone has something special waiting for you...</p>
+<button onclick="openGift()">Click to Open 🌹</button>
+</div>
+
+<div id="surprise">
+<div class="rose">🌹</div>
+<div class="msg">
+I'm sorry for everything, baby.<br>
+I love you. ❤️
+</div>
+</div>
+</div>
+
+<script>
+function openGift(){
+document.getElementById("start").style.display="none";
+document.getElementById("surprise").style.display="block";
+for(let i=0;i<25;i++){
+let p=document.createElement("div");
+p.className="petal";
+p.innerHTML="🌸";
+p.style.left=Math.random()*100+"vw";
+p.style.animationDuration=(4+Math.random()*4)+"s";
+p.style.animationDelay=Math.random()*2+"s";
+document.body.appendChild(p);
+}
+}
+</script>
+
+</body>
+</html>
